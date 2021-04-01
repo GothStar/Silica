@@ -9,7 +9,7 @@ let package = Package(
         .library(name: "Silica", targets: ["Silica"])
     ],
     dependencies: [
-        .package(url: "https://github.com/PureSwift/Cairo.git", .branch("master"))
+        .package(url: "https://github.com/GothStar/Cairo.git", .branch("master"))
     ],
     targets: [
         .target(name: "Silica", dependencies: ["Cairo"]),

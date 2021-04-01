@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "Cairo",
-        "repositoryURL": "https://github.com/PureSwift/Cairo.git",
+        "repositoryURL": "https://github.com/GothStar/Cairo.git",
         "state": {
           "branch": "master",
-          "revision": "b5f867a56a20d2f0064ccb975ae4a669b374e9e0",
+          "revision": "b77a34e0ffa4242c1110ee8d9d27e8920cd672b0",
           "version": null
         }
       }
