@@ -9,8 +9,9 @@
 import Cairo
 import CCairo
 import CFontConfig
+@_exported import struct Foundation.CGSize
+@_exported import struct Foundation.CGPoint
 
-import Foundation
 
 /// Silica's `Font` type.
 public struct CGFont: Equatable, Hashable {

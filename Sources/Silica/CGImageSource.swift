@@ -10,7 +10,7 @@ import struct Foundation.Data
 
 /// This object abstracts the data-reading task. 
 /// An image source can read image data from a `Data` instance.
-public protocol CGImageSource: class, RandomAccessCollection {
+public protocol CGImageSource: AnyObject, RandomAccessCollection {
     
     associatedtype Index = Int
     associatedtype Indices = DefaultIndices<Self>
@@ -25,9 +25,9 @@ public protocol CGImageSource: class, RandomAccessCollection {
 
 public extension CGImageSource {
     
-    public var count: Int { return 1 } // only some formats like GIF have multiple images
+    var count: Int { return 1 } // only some formats like GIF have multiple images
     
-    public subscript (index: Int) -> CGImage {
+    subscript (index: Int) -> CGImage {
         
         guard let image = createImage(at: index)
             else { fatalError("No image at index \(index)") }
@@ -35,13 +35,13 @@ public extension CGImageSource {
         return image
     }
     
-    public subscript(bounds: Range<Self.Index>) -> Slice<Self> {
+    subscript(bounds: Range<Self.Index>) -> Slice<Self> {
         
         return Slice<Self>(base: self, bounds: bounds)
     }
     
     /// The start `Index`.
-    public var startIndex: Int {
+    var startIndex: Int {
         
         return 0
     }
@@ -49,19 +49,19 @@ public extension CGImageSource {
     /// The end `Index`.
     ///
     /// This is the "one-past-the-end" position, and will always be equal to the `count`.
-    public var endIndex: Int {
+    var endIndex: Int {
         return count
     }
     
-    public func index(before i: Int) -> Int {
+    func index(before i: Int) -> Int {
         return i - 1
     }
     
-    public func index(after i: Int) -> Int {
+    func index(after i: Int) -> Int {
         return i + 1
     }
     
-    public func makeIterator() -> IndexingIterator<Self> {
+    func makeIterator() -> IndexingIterator<Self> {
         
         return IndexingIterator(_elements: self)
     }

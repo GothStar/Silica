@@ -958,7 +958,7 @@ internal extension Collection {
     public extension Silica.CGContext {
         
         @objc(debugQuickLookObject)
-        public var debugQuickLookObject: AnyObject {
+        var debugQuickLookObject: AnyObject {
             
             return surface.debugQuickLookObject
         }
